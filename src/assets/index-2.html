@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from webapplayers.com/luna_admin-v1.1/metrics.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 10 Aug 2016 14:23:15 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900' rel='stylesheet' type='text/css'>
+
+    <!-- Page title -->
+    <title>LUNA | Responsive Admin Theme</title>
+
+    <!-- Vendor styles -->
+    <link rel="stylesheet" href="vendor/fontawesome/css/font-awesome.css"/>
+    <link rel="stylesheet" href="vendor/animate.css/animate.css"/>
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.css"/>
+
+    <!-- App styles -->
+    <link rel="stylesheet" href="styles/pe-icons/pe-icon-7-stroke.css"/>
+    <link rel="stylesheet" href="styles/pe-icons/helper.css"/>
+    <link rel="stylesheet" href="styles/stroke-icons/style.css"/>
+    <link rel="stylesheet" href="styles/style.css">
+	
+	<!-- sweetalert2 -->
+	<link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.min.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- Wrapper-->
+<div class="wrapper">
+
+    <!-- Header-->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <div id="mobile-menu">
+                    <div class="left-nav-toggle">
+                        <a href="#">
+                            <i class="stroke-hamburgermenu"></i>
+                        </a>
+                    </div>
+                </div>
+                <a class="navbar-brand" href="index-2.html">
+                    TECSUP
+                    <span>v.1.0</span>
+                </a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <div class="left-nav-toggle">
+                    <a href="#">
+                        <i class="stroke-hamburgermenu"></i>
+                    </a>
+                </div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class=" profil-link">
+                        <a href="login.html">
+                            <span class="profile-address">jcastanedaa@tecsup.edu.pe</span>
+                            <img src="images/profile.jpg" class="img-circle" alt="">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- End header-->
+
+    <!-- Navigation-->
+    <aside class="navigation">
+        <nav>
+            <ul class="nav luna-nav">
+                <li class="nav-category">
+                    Usuarios
+                </li>
+                <li>
+                    <a href="alumnos.html">Alumnos</a>
+                </li>
+
+                <li class="active">
+                    <a href="#monitoring" data-toggle="collapse" aria-expanded="false">
+                        Monitoring<span class="sub-nav-icon"> <i class="stroke-arrow"></i> </span>
+                    </a>
+                    <ul id="monitoring" class="nav nav-second collapse in">
+                        <li class="active"><a href="metrics.html"> Metrics</a></li>
+                        <li><a href="usage.html"> Usage</a></li>
+                        <li><a href="activity.html"> Activity</a></li>
+                    </ul>
+                </li>
+                <li class="nav-info">
+                    <i class="pe pe-7s-shield text-accent"></i>
+                    <div class="m-t-xs">
+                        <span class="c-white">Tecsup </span> 
+						admin theme with Dark UI style for monitoring and administration web applications.
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+    <!-- End navigation-->
+
+
+    <!-- Main content-->
+    <section class="content">
+        <div class="container-fluid">
+
+            <div class="row m-t-sm">
+                <div class="col-md-15">
+                    <div class="panel">
+                        <div class="panel-body">
+                            <h3 class="m-b-xs"><i class="pe pe-7s-graph1 text-warning m-r-xs"></i> Registro de Alumnos</h3>
+                            <hr/>
+                        </div>
+                    </div>
+                </div>
+				
+				<div class="col-md-12 col-sm-12" id="form" style="display:none;">
+                    <div class="panel panel-filled">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-sm-12"><h5 class="m-t-xs">Ingreso de Alumno</h5></div>
+                            </div>
+							<form>
+								<div class="form-group">
+									<label>Nombres</label>
+									<input type="text" class="form-control" placeholder="Ingresar Nombres" id="nombres">
+								</div>
+								<div class="form-group">
+									<label>Apellido Paterno</label>
+									<input type="text" class="form-control" placeholder="Ingresar Apellido Paterno" id="ape_paterno">
+								</div>
+								<div class="form-group">
+									<label>Apellido Materno</label>
+									<input type="text" class="form-control" placeholder="Ingresar Apellido Materno" id="ape_materno">
+								</div>
+								<div  class="col-sm-12 text-right">
+                                    <div class="panel-body buttons-margin">
+									   <!--button type="submit" class="btn btn-w-md btn-success">Guardar</button-->
+									   <a href="javascript:guardar_form()" id="btnCancelar" class="btn btn-w-md btn-success">Guardar</a>
+									   <a href="javascript:cancelar_form()" id="btnCancelar" class="btn btn-w-md btn-warning">Cancelar</a>
+									</div>
+                                </div>
+							</form>
+                        </div>
+                    </div>
+                </div>
+				<div class="col-md-12 col-sm-12" id="list_alumnos">
+                    <div class="panel panel-filled">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-sm-10"><h5 class="m-t-xs">Alumnos Registrados</h5></div>
+                                <div  class="col-sm-2 text-right">
+                                    <div class="panel-body buttons-margin">
+									   <a href="javascript:ver_form()" id="btnNuevo" class="btn btn-w-md btn-info">Nuevo Alumno</a>
+									</div>
+                                </div>
+                            </div>
+							
+                            <div class="table-responsive">
+                                <table  class="table table-hover table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th>Nombres</th>
+                                        <th>Apellido Paterno</th>
+                                        <th>Apellido Materno</th>
+										<th>Acciones</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="datos">
+                                    </tbody>
+                                </table>
+                            </div>
+							
+							<br>
+                            <div class="text-right font-bold c-white y-value">
+                                <div id="val_a">Total Alumnos: 6</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End main content-->
+
+</div>
+<!-- End wrapper-->
+
+<!-- Vendor scripts -->
+<script src="vendor/pacejs/pace.min.js"></script>
+<script src="vendor/jquery/dist/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="vendor/flot/jquery.flot.min.js"></script>
+<script src="vendor/flot/jquery.flot.resize.min.js"></script>
+<script src="vendor/flot/jquery.flot.spline.js"></script>
+
+<!-- App scripts -->
+<script src="scripts/luna.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.all.min.js"></script>
+<script>
+   var valor; 
+   
+   $(document).ready(function () {
+		
+		carga_datos();
+   
+   });
+   
+   function carga_datos(){
+		
+		$.ajax({ type:"POST",
+		         url: "./alumnos/ver_alumnos.php", 
+                     async: false,
+				     success: function(result){
+                valor = result;
+            
+            }});
+        document.getElementById("datos").innerHTML = valor;
+   }
+   
+   function ver_form(){
+		document.getElementById("form").style.display = "block";
+		document.getElementById("list_alumnos").style.display = "none";
+		document.getElementById("btnNuevo").style.display = "none";
+   }
+   
+   function eliminar_form(id){
+   
+		alert("Eliminar " + id);
+   
+   }
+   
+   function editar_form(id){
+   
+		alert("Editar " + id);
+   
+   }
+   
+   function guardar_form(){
+		
+		$.ajax({ type:"POST",
+		         url: "./alumnos/agregar_alumno.php", 
+                     async: false,
+				 data:{nombres:$(nombres).val(),
+					   ape_paterno:$(ape_paterno).val(),
+					   ape_materno:$(ape_materno).val()
+					   },
+                     success: function(result){
+                valor = result;
+            
+            }});
+		
+		Swal.fire({
+			  icon: 'ok',
+			  title: 'Registro de Alumnos',
+			  text: valor
+			});
+			
+		cancelar_form();
+		carga_datos();
+   }
+   
+   function cancelar_form(){
+		document.getElementById("form").style.display = "none";
+		document.getElementById("list_alumnos").style.display = "block";
+		document.getElementById("btnNuevo").style.display = "block";
+   }
+   
+</script>
+
+</body>
+<!-- Mirrored from webapplayers.com/luna_admin-v1.1/metrics.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 10 Aug 2016 14:23:15 GMT -->
+</html>

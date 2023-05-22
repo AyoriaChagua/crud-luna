@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from webapplayers.com/luna_admin-v1.1/metrics.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 10 Aug 2016 14:23:15 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900' rel='stylesheet' type='text/css'>
+
+    <!-- Page title -->
+    <title>LUNA | Responsive Admin Theme</title>
+
+    <!-- Vendor styles -->
+    <link rel="stylesheet" href="assets/vendor/fontawesome/css/font-awesome.css"/>
+    <link rel="stylesheet" href="assets/vendor/animate.css/animate.css"/>
+    <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.css"/>
+
+    <!-- App styles -->
+    <link rel="stylesheet" href="assets/styles/pe-icons/pe-icon-7-stroke.css"/>
+    <link rel="stylesheet" href="assets/styles/pe-icons/helper.css"/>
+    <link rel="stylesheet" href="assets/styles/stroke-icons/style.css"/>
+    <link rel="stylesheet" href="assets/styles/style.css">
+	
+	<!-- sweetalert2 -->
+	<link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.min.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Wrapper-->
+<div class="wrapper">
+
+  <!-- Header-->
+  <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+          <div class="navbar-header">
+              <div id="mobile-menu">
+                  <div class="left-nav-toggle">
+                      <a href="#">
+                          <i class="stroke-hamburgermenu"></i>
+                      </a>
+                  </div>
+              </div>
+              <a class="navbar-brand" href="index-2.html">
+                  TECSUP
+                  <span>v.1.0</span>
+              </a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+              <div class="left-nav-toggle">
+                  <a href="#">
+                      <i class="stroke-hamburgermenu"></i>
+                  </a>
+              </div>
+              <ul class="nav navbar-nav navbar-right">
+                  <li class=" profil-link">
+                      <a href="login.html">
+                          <span class="profile-address">jcastanedaa@tecsup.edu.pe</span>
+                          <img src="assets/images/profile.jpg" class="img-circle" alt="">
+                      </a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </nav>
+  <!-- End header-->
+
+  <!-- Navigation-->
+  <aside class="navigation">
+      <nav>
+          <ul class="nav luna-nav">
+              <li class="nav-category">
+                  Usuarios
+              </li>
+              <li>
+                  <a href="/">Productos</a>
+              </li>
+
+              <li class="active">
+                  <a href="#monitoring" data-toggle="collapse" aria-expanded="false">
+                      Monitoring<span class="sub-nav-icon"> <i class="stroke-arrow"></i> </span>
+                  </a>
+                  <ul id="monitoring" class="nav nav-second collapse in">
+                      <li class="active"><a href="metrics.html"> Metrics</a></li>
+                      <li><a href="usage.html"> Usage</a></li>
+                      <li><a href="activity.html"> Activity</a></li>
+                  </ul>
+              </li>
+              <li class="nav-info">
+                  <i class="pe pe-7s-shield text-accent"></i>
+                  <div class="m-t-xs">
+                      <span class="c-white">Tecsup </span> 
+                        admin theme with Dark UI style for monitoring and administration web applications.
+                  </div>
+              </li>
+          </ul>
+      </nav>
+  </aside>
+  <!-- End navigation-->
+
+  <!-- Main content-->
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row m-t-sm">
+        <div class="col-md-15">
+            <div class="panel">
+                <div class="panel-body">
+                    <app-root></app-root>
+                    <hr/>
+                </div>
+            </div>
+        </div>    
+      </div>
+    </div>
+  </section>
+</div>  
+
+  <script src="assets/vendor/pacejs/pace.min.js"></script>
+  <script src="assets/vendor/jquery/dist/jquery.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/vendor/flot/jquery.flot.min.js"></script>
+  <script src="assets/vendor/flot/jquery.flot.resize.min.js"></script>
+  <script src="assets/vendor/flot/jquery.flot.spline.js"></script>
+
+  <!-- App scripts -->
+  <script src="assets/scripts/luna.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.all.min.js"></script>
+  <script>
+
+  </script>
+</body>
+</html>
