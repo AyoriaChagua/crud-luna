@@ -66,6 +66,7 @@ export class CrearProductosComponent {
 
   actualizarProducto(){
     const PRODUCTO: Producto = {
+      _id: this.productoId,
       nombre: this.productoForm.get('producto')?.value,
       descripcion: this.productoForm.get('descripcion')?.value,
       precio: this.productoForm.get('precio')?.value,

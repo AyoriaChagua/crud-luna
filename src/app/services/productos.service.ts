@@ -40,8 +40,10 @@ export class ProductosService {
 
   deleteProducto(_id: number){
     this.productos.forEach((p, i)=>{
-      if(p._id == _id){
+      console.log(p._id)
+      if(p._id === _id){
          this.productos.splice(i, 1)
+         console.log(p)
          return;
       }
     })
