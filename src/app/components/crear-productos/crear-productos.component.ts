@@ -16,29 +16,41 @@ export class CrearProductosComponent {
 
   productoForm: FormGroup;
 
+  productoObt: Producto | undefined;
+
   constructor(private fb: FormBuilder, 
               private router: Router, 
               private productoService: ProductosService, 
               private route: ActivatedRoute){
 
-        this.productoForm = this.fb.group({
-          producto: ['', Validators.required],
-          descripcion: ['', Validators.required],
-          precio: ['', Validators.required],
-        })
+
 
 
         this.route.params.subscribe(params => {
           this.productoId = +params['_id']; // Convertir el ID en número
           // Aquí puedes realizar cualquier lógica adicional para cargar los datos del producto correspondiente
-          console.log(this.productoId)
+          console.log(this.productoId);
         });
+
+        this.productoObt = productoService.getProducto(this.productoId)
+
+        if(this.productoObt != undefined){
+          console.log(this.productoObt);
+        }else{
+          console.log("No se pudo obtener el producto")
+        }
+
+        this.productoForm = this.fb.group({
+          producto: [this.productoObt?.nombre, Validators.required],
+          descripcion: [this.productoObt?.descripcion, Validators.required],
+          precio: [this.productoObt?.precio, Validators.required],
+        })
 
   }
 
 
   agregarProducto(){
-    const contador: number = 10;
+    const contador: number = 12;
 
     const PRODUCTO: Producto = {
       _id: (contador + 1),
@@ -49,8 +61,19 @@ export class CrearProductosComponent {
 
     this.productoService.agregarProducto(PRODUCTO)
 
+    this.router.navigate(['/'])
+  }
+
+  actualizarProducto(){
+    const PRODUCTO: Producto = {
+      nombre: this.productoForm.get('producto')?.value,
+      descripcion: this.productoForm.get('descripcion')?.value,
+      precio: this.productoForm.get('precio')?.value,
+    }
+
     console.log(PRODUCTO)
 
+    this.productoService.updateProducto(this.productoId, PRODUCTO)
     this.router.navigate(['/'])
   }
 

@@ -27,7 +27,7 @@
                             <td>{{prod.descripcion}}</td>
                             <td>{{prod.precio}}</td>
                             <td>
-                                <i class="pe pe-7s-trash text-accent"></i>&nbsp;&nbsp;
+                                <a [routerLink]="['/eliminar-producto', prod._id]"><i class="pe pe-7s-trash text-accent"></i></a>&nbsp;&nbsp;
                                 <a [routerLink]="['/editar-producto', prod._id]"><i class="pe pe-7s-pen text-accent"></i></a>
                             </td>
                         </tr>

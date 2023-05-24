@@ -11,8 +11,8 @@ export class ProductosService {
   constructor(){
     this.productos.push(
       new Producto(10, "Data test1", "this is a data test 1", 10),
-      new Producto(10, "Data test2", "this is a data test 2", 20),
-      new Producto(10, "Data test3", "this is a data test 3", 30)
+      new Producto(11, "Data test2", "this is a data test 2", 20),
+      new Producto(12, "Data test3", "this is a data test 3", 30)
     );
   }
 
@@ -24,13 +24,26 @@ export class ProductosService {
     this.productos.push(producto);
   }
 
-  getProducto(_id: string): Producto | undefined{
-    return this.productos.find(p => p._id || undefined == _id);
+  getProducto(_id: number): Producto | undefined{
+    console.log(this.productos.find(p => p._id == _id))
+    return this.productos.find(p => p._id == _id);
   }
 
-  updateProduct(_id: string, newProducto: Producto): void {
+  updateProducto(_id: number, newProducto: Producto): void {
     this.productos.forEach((p, i)=> {
-      if(p._id || undefined == _id) this.productos[i] = newProducto;
+      if(p._id == _id){
+         this.productos[i] = newProducto;
+         return;
+      }
+    })
+  }
+
+  deleteProducto(_id: number){
+    this.productos.forEach((p, i)=>{
+      if(p._id == _id){
+         this.productos.splice(i, 1)
+         return;
+      }
     })
   }
 
